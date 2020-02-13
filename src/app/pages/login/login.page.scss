@@ -1,0 +1,22 @@
+.login-container {
+  section {
+    .app-brand {
+      text-align: center;
+    }
+    form {
+      padding: 15px;
+      .login-form-field {
+        width: 100%;
+      }
+      button {
+        margin-top: 25px;
+      }
+    }
+  }
+  width: 100vw;
+  height: calc(100vh - 50px);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}

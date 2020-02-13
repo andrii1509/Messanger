@@ -1,0 +1,24 @@
+<ion-content>
+  <div class="login-container">
+    <section>
+      <h2 class="app-brand">
+        TellBot
+      </h2>
+      <form>
+        <mat-form-field class="login-form-field">
+          <input type="text" matInput [formControl]="loginControl" placeholder="Login">
+          <mat-error *ngIf="loginControl.hasError('required')">
+            Please enter a login
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="login-form-field">
+          <input matInput type="password" [formControl]="loginControl" placeholder="Password">
+          <mat-error *ngIf="passwordControl.hasError('required')">
+            Please enter a password
+          </mat-error>
+        </mat-form-field>
+        <button class="login-form-field" (click)="auth()" mat-raised-button color="primary">Login</button>
+      </form>
+    </section>
+  </div>
+</ion-content>

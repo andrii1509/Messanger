@@ -1,0 +1,20 @@
+.user-img-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  .user-img {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 400px;
+    padding: 10px;
+    background: silver;
+    width: 100%;
+  }
+}
+
+.user-info-wrap {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
