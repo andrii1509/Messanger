@@ -1,30 +1,37 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import {AuthGuardService} from './services/auth-guard.service';
+import {AuthGuard} from './services/auth-guard.service';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
-  },
-  {
-    path: 'profile',
-    loadChildren: () => import('./pages/profile/profile.module').then(m => m.ListPageModule),
-      canActivate: [AuthGuardService]
-  },
-  {
-    path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
-  },
-  {
-    path: 'main',
-    loadChildren: () => import('./pages/main/main.module').then(m => m.MainPageModule)
-  },
-  {
-    path: 'messages',
-    loadChildren: () => import('./pages/messages/messages.module').then(m => m.MessagesPageModule)
-  }
+    {
+        path: 'profile',
+        loadChildren: () => import('./pages/profile/profile.module').then(m => m.ListPageModule),
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'login',
+        loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    },
+    {
+        path: 'messages',
+        loadChildren: () => import('./pages/messages/messages.module').then(m => m.MessagesPageModule),
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'chats',
+        loadChildren: () => import('./pages/chats/chats.module').then( m => m.ChatsPageModule),
+        canActivate: [AuthGuard]
+    },
+    {
+        path: '',
+        redirectTo: 'chats',
+        pathMatch: 'full'
+    },
+    {
+        path: '**',
+        redirectTo: 'chats'
+    },
+
 ];
 
 @NgModule({
