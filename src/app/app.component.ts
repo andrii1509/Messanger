@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import {NavController, Platform} from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import {AuthenticationService} from './services/authentication.service';
+import {AuthenticationService} from './services/authentication/authentication.service';
 import {UserService} from './user-store/user.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class AppComponent {
       {
           title: 'Profile',
           url: '/profile',
-          icon: 'profile'
+          icon: 'person-circle-outline'
       },
   ];
 
@@ -36,6 +36,7 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.show();
     });
+    this.userService.setCachedUser();
   }
     logOut() {
       this.authenticationService.logOut();

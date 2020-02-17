@@ -10,7 +10,7 @@
         <ion-list>
           <ion-menu-toggle auto-hide="true" *ngFor="let p of appPages" (click)="redirect(p.url)">
             <ion-item [routerDirection]="'root'">
-              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-icon slot="start" name="{{p.icon}}"></ion-icon>
               <ion-label>
                 {{p.title}}
               </ion-label>
@@ -18,7 +18,7 @@
           </ion-menu-toggle>
           <ion-menu-toggle auto-hide="false" (click)="logOut()">
             <ion-item>
-              <ion-icon slot="start"></ion-icon>
+              <ion-icon slot="start" name="log-out-outline"></ion-icon>
               <ion-label>
                 Logout
               </ion-label>

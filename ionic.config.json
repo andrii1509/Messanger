@@ -1,5 +1,7 @@
 {
   "name": "Messanger",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from '../../services/authentication.service';
+import {AuthenticationService} from '../../services/authentication/authentication.service';
 import {FormControl, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 
@@ -13,22 +13,21 @@ export class LoginPage implements OnInit {
   constructor(
       private authenticationService: AuthenticationService,
       private router: Router
-  ) { }
+  ) {
+      if (this.authenticationService.isAuthenticated()) {
+          this.router.navigate(['chats']).then();
+      }
+  }
 
   loginControl = new FormControl('', [Validators.required]);
   passwordControl = new FormControl('', [Validators.required]);
 
   ngOnInit() {
-      if (this.authenticationService.isAuthenticated()) {
-          this.router.navigate(['main']).then();
-      }
+
   }
 
   auth() {
-    // if (this.validate()) {
-
-        this.authenticationService.login();
-    // }
+      this.authenticationService.login(this.loginControl.value, this.passwordControl.value).subscribe();
   }
 
   private validate() {
